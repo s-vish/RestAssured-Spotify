@@ -13,14 +13,14 @@ public class PlayListTests {
         Playlist playlist = new Playlist();
         playlist.setName(name);
         playlist.setDescription(description);
-        playlist.setPublic(isPublic);
+        playlist.set_public(isPublic);
         return playlist;
     }
 
     public void assertPlaylistEquals(Playlist requestPlaylist, Playlist responsePlaylist){
         assertEquals(responsePlaylist.getName(),requestPlaylist.getName());
         assertEquals(responsePlaylist.getDescription(),requestPlaylist.getDescription());
-        assertEquals(responsePlaylist.getPublic(),requestPlaylist.getPublic());
+        assertEquals(responsePlaylist.get_public(),requestPlaylist.get_public());
     }
 
     public void assertError(Error responseError,int expectedStatusCode,String expectedMsg){
@@ -65,7 +65,7 @@ public class PlayListTests {
         Playlist playlist = response.as(Playlist.class);
         assertEquals(playlist.getName(),"Marathii");
         assertEquals(playlist.getDescription(),"Marathi requestPlaylist description");
-        assertEquals(playlist.getPublic(),false);
+        assertEquals(playlist.get_public(),false);
 
     }
 
@@ -91,7 +91,7 @@ public class PlayListTests {
         Playlist requestPlaylist = new Playlist();
         requestPlaylist.setName("");
         requestPlaylist.setDescription("Marathi requestPlaylist description");
-        requestPlaylist.setPublic(false);
+        requestPlaylist.set_public(false);
 
         Response response = PlaylistApi.post(requestPlaylist,"accessToken");
         assertStatusCode(response.statusCode(), 401);

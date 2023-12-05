@@ -4,7 +4,9 @@ package com.spotify.oauth2.tests.com.spotify.uauth2.pojo.error;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
+@Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Error__1 {
 
@@ -12,25 +14,4 @@ public class Error__1 {
     private Integer status;
     @JsonProperty("message")
     private String message;
-
-    @JsonProperty("status")
-    public Integer getStatus() {
-        return status;
-    }
-
-    @JsonProperty("status")
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    @JsonProperty("message")
-    public String getMessage() {
-        return message;
-    }
-
-    @JsonProperty("message")
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
 }
