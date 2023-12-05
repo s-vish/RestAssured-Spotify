@@ -1,6 +1,7 @@
 package com.spotify.oauth2.api;
 
 import com.spotify.oauth2.utils.ConfigLoader;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.config.EncoderConfig;
 import io.restassured.filter.log.LogDetail;
@@ -17,7 +18,8 @@ public class SpecBuilder {
                 .setBasePath(BASE_PATH)
                 .setContentType(ContentType.JSON)
                 .setConfig(config.encoderConfig(EncoderConfig.encoderConfig().appendDefaultContentCharsetToContentTypeIfUndefined(false)))
-                .log(LogDetail.ALL);
+                .addFilter(new AllureRestAssured());
+//                .log(LogDetail.ALL);
         return requestSpecification = requestSpecBuilder.build();
     }
 }

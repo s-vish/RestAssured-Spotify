@@ -1,6 +1,7 @@
 package com.spotify.oauth2.api;
 
 import com.spotify.oauth2.utils.ConfigLoader;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.config.EncoderConfig;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -51,7 +52,7 @@ public class TokenManager {
                         .appendDefaultContentCharsetToContentTypeIfUndefined(false)))
                 .contentType(ContentType.URLENC)
                 .formParams(formBody)
-                .log().all()
+//                .log().all()
                 .when().post(API+TOKEN)
                 .then().log().all()
                 .extract().response();
