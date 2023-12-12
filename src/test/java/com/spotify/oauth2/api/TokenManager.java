@@ -1,6 +1,7 @@
 package com.spotify.oauth2.api;
 
 import com.spotify.oauth2.utils.ConfigLoader;
+import io.qameta.allure.Step;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.config.EncoderConfig;
 import io.restassured.http.ContentType;
@@ -20,6 +21,7 @@ public class TokenManager {
     private static String access_token;
     private static Instant expiry_time;
 
+    @Step
     public synchronized static String getToken(){
         try {
             if(access_token==null || Instant.now().isAfter(expiry_time)) {
@@ -39,6 +41,8 @@ public class TokenManager {
         return access_token;
     }
 
+
+
     private static Response renewToken(){
         Map<String, String> formBody = new HashMap<>();
         formBody.put("grant_type", ConfigLoader.getInstance().getGrantType());
@@ -52,7 +56,8 @@ public class TokenManager {
                         .appendDefaultContentCharsetToContentTypeIfUndefined(false)))
                 .contentType(ContentType.URLENC)
                 .formParams(formBody)
-//                .log().all()
+                .filter(new AllureRestAssured())
+                .log().all()
                 .when().post(API+TOKEN)
                 .then().log().all()
                 .extract().response();

@@ -4,6 +4,7 @@ import com.spotify.oauth2.api.TokenManager;
 import com.spotify.oauth2.tests.com.spotify.uauth2.pojo.Playlist;
 import com.spotify.oauth2.utils.ConfigLoader;
 import io.qameta.allure.Step;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.response.Response;
 import static com.spotify.oauth2.api.Route.PLAYLISTS;
 import static com.spotify.oauth2.api.Route.USERS;
@@ -19,7 +20,7 @@ public class PlaylistApi {
                 .auth().oauth2(access_token)
                 .body(requestPlaylist)
                 .when().post(USERS+"/" + ConfigLoader.getInstance().getUserId() + PLAYLISTS)
-                .then().extract().response();
+                .then().log().all().extract().response();
     }
 
     @Step
@@ -28,7 +29,7 @@ public class PlaylistApi {
                 .auth().oauth2(access_token)
                 .body(requestPlaylist)
                 .when().post(USERS+"/" + ConfigLoader.getInstance().getUserId() + PLAYLISTS)
-                .then().extract().response();
+                .then().log().all().extract().response();
 
     }
 
@@ -37,7 +38,7 @@ public class PlaylistApi {
         return given(getRequestSpec())
                 .auth().oauth2(access_token)
                 .when().get(PLAYLISTS+"/" + playlistId)
-                .then().extract().response();
+                .then().log().all().extract().response();
     }
 
     @Step
@@ -46,7 +47,7 @@ public class PlaylistApi {
                 .auth().oauth2(access_token)
                 .body(requestPlaylist)
                 .when().put(PLAYLISTS+"/" + playlistId)
-                .then().extract().response();
+                .then().log().all().extract().response();
 
     }
 }
