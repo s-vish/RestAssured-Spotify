@@ -6,7 +6,10 @@ public class Route {
     public static final String TOKEN = "/token";
     public static final String USERS = "/users";
     public static final String PLAYLISTS="/playlists";
-
     public static final String RECOMMENDATION = "/recommendations";
     public static final String AVAILABLE_GENRE_SEEDS ="/available-genre-seeds";
+    public static final String ME ="/me";
+    public static final String FOLLOWERS = "/followers";
+    public static final String CONTAINS ="/contains";
+
 }
