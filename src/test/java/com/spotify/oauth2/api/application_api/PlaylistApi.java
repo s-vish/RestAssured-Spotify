@@ -1,10 +1,8 @@
 package com.spotify.oauth2.api.application_api;
 
-import com.spotify.oauth2.api.TokenManager;
-import com.spotify.oauth2.tests.com.spotify.uauth2.pojo.Playlist;
+import com.spotify.oauth2.tests.com.spotify.uauth2.pojo.playlist.Playlist;
 import com.spotify.oauth2.utils.ConfigLoader;
 import io.qameta.allure.Step;
-import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.response.Response;
 import static com.spotify.oauth2.api.Route.PLAYLISTS;
 import static com.spotify.oauth2.api.Route.USERS;

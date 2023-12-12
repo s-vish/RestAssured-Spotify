@@ -8,5 +8,4 @@
             <class name="com.spotify.oauth2.tests.UsersTest" />
         </classes>
     </test>
-
 </suite>

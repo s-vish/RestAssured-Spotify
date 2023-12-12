@@ -1,5 +1,5 @@
 
-package com.spotify.oauth2.tests.com.spotify.uauth2.pojo;
+package com.spotify.oauth2.tests.com.spotify.uauth2.pojo.playlist;
 
 import java.util.List;
 
