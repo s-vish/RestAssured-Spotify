@@ -11,7 +11,6 @@ import static com.spotify.oauth2.api.TokenManager.getToken;
 import static io.restassured.RestAssured.given;
 
 public class PlaylistApi {
- //   static String access_token = TokenManager.getToken();
 
     @Step
     public static Response post(Playlist requestPlaylist) {

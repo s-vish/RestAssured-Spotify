@@ -12,7 +12,6 @@ import static io.restassured.RestAssured.given;
 
 public class GenreApi {
 
- //   static String access_token = getToken();
     @Step
     public static Response get() {
         return given(getRequestSpec())

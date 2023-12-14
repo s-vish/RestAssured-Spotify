@@ -11,7 +11,7 @@ import static com.spotify.oauth2.api.TokenManager.getToken;
 import static io.restassured.RestAssured.given;
 
 public class UsersApi {
-//    static String access_token = TokenManager.getToken();
+
     @Step
     public static Response getCurrentUserProfile() {
         return given(getRequestSpec())
