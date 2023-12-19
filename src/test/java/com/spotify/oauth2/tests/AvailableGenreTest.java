@@ -15,11 +15,9 @@ public class AvailableGenreTest {
     }
 
     @Test(description = "User should able to fetch available genre")
-    public void shouldAbleToUpdatePlayList() {
+    public void shouldAbleToFetchAvailableGenre() {
 
         Response response = GenreApi.get();
         assertStatusCode(response.statusCode(), 200);
-
-
     }
 }

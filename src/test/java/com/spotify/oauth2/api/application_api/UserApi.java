@@ -1,6 +1,5 @@
 package com.spotify.oauth2.api.application_api;
 
-import com.spotify.oauth2.api.TokenManager;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 
@@ -10,7 +9,7 @@ import static com.spotify.oauth2.api.SpecBuilder.getResponseSpec;
 import static com.spotify.oauth2.api.TokenManager.getToken;
 import static io.restassured.RestAssured.given;
 
-public class UsersApi {
+public class UserApi {
 
     @Step
     public static Response getCurrentUserProfile() {
@@ -21,7 +20,7 @@ public class UsersApi {
     }
 
     @Step
-    public static Response getUserProfile(String userId) {
+    public static Response getUserProfileById(String userId) {
         return given(getRequestSpec())
                 .auth().oauth2(getToken())
                 .when().get(USERS+"/"+userId)

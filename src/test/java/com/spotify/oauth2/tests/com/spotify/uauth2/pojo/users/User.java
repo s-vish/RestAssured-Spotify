@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.ArrayList;
 
 @Data
-public class Users {
+public class User {
     private String display_name;
     private ExternalUrls external_urls;
     private String href;
